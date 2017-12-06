@@ -1,0 +1,28 @@
+{% extends 'com/base.html'%}
+<html>
+
+{%block body_block%}
+<body>
+<h2>Welcome <i>{{user}}</i>, It's TellMe app</h2>
+
+<h3> Received </h3>
+{% if received is not None %}
+  <ul>
+  {%for msg in received%}
+    <li> {{msg.content}} </li>
+  </ul>
+  {%endfor%}
+{%endif%}
+<h3>Sent</h3>
+{% if sent is not None%}
+  <ul>
+    {%for msg in sent%}
+      <li>{{msg.content}}</li>
+    {%endfor%}
+  </ul>
+{%endif%}
+</body>
+{%endblock%}
+
+
+</html>

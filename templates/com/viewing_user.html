@@ -1,0 +1,30 @@
+<html>
+
+  {% if obj == None %}
+
+    <h2>Sorry this user ({{u}}) DoesNotExist</h2>
+
+  {% else %}
+    <h3>Be honest, and Tellme what you want</h3>
+    <br>
+      <i>{{obj.username}}</i>
+
+      <form method="post" enctype= 'multipart/form-data' action="{%url 'com:sending_message' obj.username %}">
+        {%csrf_token%}
+        {% for hidden in form.hidden_fields%}
+          {{hidden}}
+        {%endfor%}
+
+        {% for visible in form.visible_fields%}
+        {{visible}}
+        {%endfor%}
+
+        <input type="submit" value='Tell'/>
+      </form>
+      {%if state%}
+      Thanks for sending {{u}} a message
+      {%endif%}
+
+  {%endif%}
+
+</html>

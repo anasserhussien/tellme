@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>
+    {%block title_block%}
+      blaaaaaaaaaaaaaaaaaa
+    {%endblock%}
+  </title>
+</head>
+
+<body>
+  {%block body_block%}
+
+  {%endblock%}
+  <hr >
+<div>
+  <ul>
+    <li ><a href="{% url 'registration_register'%}"> Register </a> </li>
+    {% if user.is_authenticated%}
+      <li ><a href="{% url 'auth_logout'%}?next=/com/"> logout </a> </li>
+    {%else%}
+      <li ><a href="{% url 'auth_login'%}"> login </a> </li>
+    {%endif%}
+
+    {{user.}}
+
+
+  </ul>
+</div>
+</body>
+
+
+
+
+</html>
